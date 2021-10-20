@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function header() {
+export function Header() { //export default là đưa file này ra bên ngoài để sử dụng
     return (
 
       <header id="header">
@@ -35,14 +35,11 @@ export default function header() {
                 <a href="#">Đăng xuất</a>
               </div>
             </div>
-            {/* <div class="not-login bg-none">
-                  <a href="#" class="btn-register">Đăng nhập</a>
-                  <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
-              </div> */}
           </div>
         </div>
       </header>
+
      
-      
+
     )
 }
