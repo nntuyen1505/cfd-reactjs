@@ -7,6 +7,7 @@ import Content from './components/Content'
 export default function CourseDetail() {
     var projectMember = [
         {
+            img:"img/img1.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -18,6 +19,7 @@ export default function CourseDetail() {
       
           },
           {
+            img:"img/img2.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -29,6 +31,7 @@ export default function CourseDetail() {
       
           },
           {
+            img:"img/img3.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -42,6 +45,7 @@ export default function CourseDetail() {
     ]
     var projectMember = [
         {
+          img:"img/img1.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -53,6 +57,7 @@ export default function CourseDetail() {
       
           },
           {
+            img:"img/img2.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -64,6 +69,7 @@ export default function CourseDetail() {
       
           },
           {
+            img:"img/img3.png",
             // tag: "end",
             // people: "12",
             // liked: "100",
@@ -71,8 +77,6 @@ export default function CourseDetail() {
             des: "One of the best corporate fashion brands in Sydney",
             avatar: "img/img3.png",
             teacher: "Trần Nghĩa"
-            
-      
           },
     ]
     return (

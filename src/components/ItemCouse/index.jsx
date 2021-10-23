@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function ItemCourse({tag, people,like,name,des,avatar,teacher}) {
+export default function ItemCourse({img,tag, people,like,name,des,avatar,teacher}) {
   return (
     <div className="col-md-4 course">
       <div className="wrap">
         <a className="cover" href="#">
-          <img src="img/img1.png" alt="" />
+          <img src={img} alt="" />
           {
               tag === 'Đã kết thúc' &&  (<span className="badge b1">{tag}</span>)
           }

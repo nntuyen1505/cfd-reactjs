@@ -50,7 +50,7 @@ export default function Project() {
             <div className="list row">
               {
                 projectList.map(function(item,index){
-                  return <ProjectList img={item.img} name={item.name} makeup={item.makeby} key={index}/>
+                  return <ProjectList img={item.img} name={item.name} makeup={item.makeby} />
                 })
               }
             </div>

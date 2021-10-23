@@ -2,10 +2,17 @@ import React from 'react'
 import ItemCourse from '../../components/ItemCouse/index.jsx'
 
 
-export  function ListCourse({topdes, subtitle,maintitle,list}) {
+export  function ListCourse({h2title,topdes, subtitle,maintitle,list}) {
     return (
       <section className="section-courseoffline">
           <div className="container">
+              {
+                  topdes ? (
+                    <h2 className="main-title">
+                         {h2title}
+                    </h2>
+                  ) : null
+              }
               {
                   topdes ? (
                     <p className="top-des">
@@ -26,7 +33,9 @@ export  function ListCourse({topdes, subtitle,maintitle,list}) {
 
               {
                 list.map(function(item, index){
-                  return <ItemCourse tag={item.tag} 
+                  return <ItemCourse 
+                  img={item.img}  
+                  tag={item.tag} 
                   people={item.people} 
                   like={item.like} 
                   name={item.name} 
