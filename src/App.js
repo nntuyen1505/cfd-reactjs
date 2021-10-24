@@ -13,21 +13,20 @@ import Introduce from "./pages/Introduce";
 import Cooperate from "./pages/Cooperate";
 import Payment from "./pages/Payment";
 import Page404 from "./pages/Page404";
+import "./asset/custom.scss";
 
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    // <BrowserRouter>
-    <Router>
+    <BrowserRouter>
       <Header />
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/gioi-thieu" component={Introduce} />
         <Route path="/khoa-hoc" component={Course} />
-        <Route path="/chi-tiet-khoa-hoc" component={CourseDetail} />
+        <Route path="/chi-tiet-khoa-hoc/:slug" component={CourseDetail} />
         <Route path="/san-pham" component={Project} />
         <Route path="/thong-tin-ca-nhan" component={Profile} />
         <Route path="/faq" component={Faq} />
@@ -37,62 +36,11 @@ function App() {
         <Route path="/dang-ky" component={Register} />
         <Route path="/team" component={Team} />
         <Route path="/demo" component={Demo} />
-
         <Route component={Page404} />
       </Switch>
       <Footer />
-    </Router>
-    // </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-{
-  /* <Header />, */
-}
-{
-  /* <Nav/> */
-}
-{
-  /* <Home />, */
-}
-{
-  /* <Introduce/> */
-}
-{
-  /* <Course/> */
-}
-{
-  /* <CourseDetail/> */
-}
-{
-  /* <Project/> */
-}
-{
-  /* <Profile/> */
-}
-{
-  /* <Faq/> */
-}
-{
-  /* <Email/> */
-}
-{
-  /* <Cooperate/> */
-}
-{
-  /* <Payment/> */
-}
-{
-  /* <Register/> */
-}
-{
-  /* <Team/> */
-}
-{
-  /* <Page404/> */
-}
-{
-  /* <Demo haha={10}/> */
-}

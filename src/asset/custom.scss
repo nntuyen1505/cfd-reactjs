@@ -1,0 +1,15 @@
+.demo {
+    .TestChild {
+        background-color: red;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 60px;
+        h1 {
+            font-size: 30px;
+            color: white;
+        }
+    }
+}

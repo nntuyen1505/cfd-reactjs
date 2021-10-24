@@ -33,15 +33,16 @@ export  function ListCourse({h2title,topdes, subtitle,maintitle,list}) {
 
               {
                 list.map(function(item, index){
-                  return <ItemCourse 
-                  img={item.img}  
-                  tag={item.tag} 
-                  people={item.people} 
-                  like={item.like} 
-                  name={item.name} 
-                  des={item.des} 
-                  avatar={item.avatar} 
-                  teacher={item.teacher}
+                  return <ItemCourse {...item}
+                  // img={item.img}  
+                  // tag={item.tag} 
+                  // people={item.people} 
+                  // like={item.like} 
+                  // name={item.name} 
+                  // des={item.des} 
+                  // avatar={item.avatar} 
+                  // teacher={item.teacher}
+                  
                  />
                 })
               }
