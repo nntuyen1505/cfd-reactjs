@@ -1,5 +1,6 @@
 import { Header, Nav, Footer } from "./components";
 import Demo from "./pages/Demo";
+import TestParent from "./pages/Demo1";
 import Home from "./pages/Home";
 import Course from "./pages/Course";
 import CourseDetail from "./pages/CourseDetail";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/dang-ky" component={Register} />
         <Route path="/team" component={Team} />
         <Route path="/demo" component={Demo} />
+        <Route path="/demo1" component={TestParent} />
         <Route component={Page404} />
       </Switch>
       <Footer />
