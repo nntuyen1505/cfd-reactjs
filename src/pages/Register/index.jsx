@@ -1,40 +1,14 @@
 import React, { useState } from "react";
+import { useParams } from "react-router";
+import { useForm } from "../../hooks/useForm";
+import courseService from "../../services/courseService";
 
 export default function Register() {
-  const phoneRegex=/(84|0[3|5|7|8|9])+([0-9]{8})\b/;
-  const emailRegex= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+  const { slug } = useParams();
 
-  const [form, setForm] = useState({ name: "" });
-  const [error, setError] = useState({});
-
-  const handleInputChange = (event) => {
-    let name = event.currentTarget.name;
-    let value = event.currentTarget.value;
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
-  const handleClick =() => {
-    let errorObject = {};
-    if (!form.name) {
-      errorObject.name = "vui long nhap ten";
-    }
-    if (!phoneRegex.test(form.phone)) {
-      errorObject.phone = "vui long nhap phone";
-    }
-    if (!emailRegex.test(form.email)) {
-      errorObject.email = "vui long nhap email";
-    }
-    if (!urlRegex.test(form.url)) {
-      errorObject.url = "vui long nhap url";
-    }
-    setError(errorObject);
-
-    if(Object.keys(errorObject).length ===  0){
-      alert('dang ky thanh cong');
-    }
+  let { register, error, handleSubmit } = useForm();
+  const submit = async (form) => {
+    let res = await courseService.register(slug, form);
   };
 
   return (
@@ -55,20 +29,22 @@ export default function Register() {
                 <strong>Học phí:</strong> 6.000.000 VND
               </div>
             </div>
-            <div className="form">
+            <form className="form" onSubmit={handleSubmit(submit)}>
               <label>
                 <p>
                   Họ và tên<span>*</span>
                 </p>
                 <input
+                  {...register("name", { required: true })}
                   type="text"
                   name="name"
-                  onChange={handleInputChange}
-                  value={form.name}
                   placeholder="Họ và tên bạn"
                 />
                 {error.name && (
-                  <p className="errorText" style={{ color: "red" }}>
+                  <p
+                    className="errorText"
+                    style={{ color: "red", fontSize: "13px" }}
+                  >
                     {error.name}
                   </p>
                 )}
@@ -78,14 +54,16 @@ export default function Register() {
                   Số điện thoại<span>*</span>
                 </p>
                 <input
+                  {...register("phone", { pattern: "phone" })}
                   type="text"
                   name="phone"
-                  onChange={handleInputChange}
-                  value={form.phone}
                   placeholder="Số điện thoại"
                 />
                 {error.phone && (
-                  <p className="errorText" style={{ color: "red" }}>
+                  <p
+                    className="errorText"
+                    style={{ color: "red", fontSize: "13px" }}
+                  >
                     {error.phone}
                   </p>
                 )}
@@ -94,15 +72,18 @@ export default function Register() {
                 <p>
                   Email<span>*</span>
                 </p>
+
                 <input
+                  {...register("email", { pattern: "email" })}
                   type="text"
                   name="email"
-                  onChange={handleInputChange}
-                  value={form.email}
                   placeholder="Email của bạn"
                 />
                 {error.email && (
-                  <p className="errorText" style={{ color: "red" }}>
+                  <p
+                    className="errorText"
+                    style={{ color: "red", fontSize: "13px" }}
+                  >
                     {error.email}
                   </p>
                 )}
@@ -112,14 +93,16 @@ export default function Register() {
                   URL Facebook<span>*</span>
                 </p>
                 <input
+                  {...register("url", { pattern: "url" })}
                   type="text"
                   name="url"
-                  onChange={handleInputChange}
-                  value={form.url}
                   placeholder="https://facebook.com"
                 />
                 {error.url && (
-                  <p className="errorText" style={{ color: "red" }}>
+                  <p
+                    className="errorText"
+                    style={{ color: "red", fontSize: "13px" }}
+                  >
                     {error.url}
                   </p>
                 )}
@@ -149,15 +132,13 @@ export default function Register() {
                 <input
                   type="text"
                   placeholder="Mong muốn cá nhân và lịch bạn có thể học."
-                  value={form.content}
                   name="content"
-                  onChange={handleInputChange}
                 />
               </label>
-              <div onClick={handleClick} className="btn main rect">
+              <button type="submit" className="btn main rect">
                 đăng ký
-              </div>
-            </div>
+              </button>
+            </form>
           </div>
         </div>
       </section>

@@ -15,6 +15,10 @@
     }
 }
 
+.errorInput {
+    color: red;
+}
+
 .testparent {
     margin-top: 60px;
     height: auto;
@@ -45,5 +49,19 @@
             display: flex;
             gap: 30px;
         }
+    }
+}
+
+.demo_useeffect {
+    height: 900px;
+    margin-top: 60px;
+    padding-left: 20px;
+    .srcollY {
+        position: fixed;
+        bottom: 50px;
+        left: 20px;
+        z-index: 999999;
+        background-color: red;
+        color: wheat;
     }
 }
