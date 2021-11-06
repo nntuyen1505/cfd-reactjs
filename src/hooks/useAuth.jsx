@@ -8,4 +8,4 @@ import { Context } from "../App";
 // }
 
 
-export const useAuth = () => useSelector((store) => store.auth);
+export const useAuth = () => useSelector((store) => store);

@@ -8,7 +8,7 @@ export default function Register() {
 
   let { register, error, handleSubmit } = useForm();
   const submit = async (form) => {
-    let res = await courseService.register(slug, form);
+    let res = await courseService.register(slug, form)
   };
 
   return (

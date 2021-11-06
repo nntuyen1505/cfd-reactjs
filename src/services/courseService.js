@@ -38,22 +38,32 @@
 //     detail(slug) {
 //         return fetch(`${api}/elearning/v4/course/${slug}`).then(handleResponse);
 //     },
-//  
+//
 // };
 // export default courseService;
 
-
-import { api } from './config'
-
+import Register from "../pages/Register";
+import { api } from "./config";
 
 const courseService = {
-
-    home() {
-        return fetch(`${api}/elearning/v4/home`).then((res) => res.json())
-    },
-    courseDetail(slug) {
-        return fetch(`${api}/elearning/v4/course/${slug}`).then((res) => res.json())
-    }
-
-}
-export default courseService
+  home() {
+    return fetch(`${api}/elearning/v4/home`).then((res) => res.json());
+  },
+  courseDetail(slug) {
+    return fetch(`${api}/elearning/v4/course/${slug}`).then((res) =>
+      res.json()
+    );
+  },
+  register(slug, data) {
+    let token = JSON.stringify(localStorage.getItem("token"))?.accessToken;
+    return fetch(`${api}/elearning/v4/course-register/${slug}`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then((res) => res.json);
+  },
+};
+export default courseService;

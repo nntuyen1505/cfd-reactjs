@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 export default function Page404() {
     return (
@@ -7,7 +8,7 @@ export default function Page404() {
           <section>
             <h2 className="main-title">404</h2>
             <p>Không tìm thấy trang</p>
-            <a href="#" className="btn main round">Trang chủ</a>
+            <Link to="/" className="btn main round">Trang chủ</Link>
           </section>
         </div>
       </main>
